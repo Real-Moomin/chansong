@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="찬양 연습을 위한 악보, 반주, 곡 구성 정리">
+    <title>2월 청년집회 찬양연습</title>
+    <style>
+        html{background: #0a0a0a;}
+        p{color: #fff; font-size: 16px; line-height: 1.55}
+        h1{color: #fff; font-size: 24px; margin-top: 40px}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #111;
+            color: white;
+            font-size: 18px;
+        }
+        .tabs button {
+            flex: 1;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 18px;
+            border-bottom: 2px solid #111;
+
+
+        }
+        .tabs button.active {
+            background-color: #111;
+            font-weight: 700;
+            color:#fff;
+            border-bottom: 2px solid #fff;
+        }
+        .content {
+            display: none;
+            padding: 20px 20px 80px 20px;
+        }
+        .content.active {
+            display: block;
+        }
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container button {
+            margin-bottom: 10px;
+        }
+        .image-container img {
+            display: none;
+            max-width: 100%;
+        }
+        img{max-width: 100%}
+
+        .music-buttons button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .music-player {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 600px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 44px;
+        }
+        .music-player.active {
+            display: flex;
+        }
+        .music-player .controls {
+            display: flex;
+            gap: 10px;
+            margin-right: 30px;
+        }
+        .music-player .progress {
+            flex: 1;
+            margin: 0 10px;
+            position: relative;
+            cursor: pointer;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #555;
+            position: relative;
+        }
+        .progress-bar .progress-filled {
+            height: 100%;
+            background-color: #28A745;
+            width: 0;
+        }
+        .icon-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;}
+
+        .progress{color: #aaa}
+    </style>
+</head>
+<body>
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+        <button class="active" onclick="showTab(0)">홈</button>
+        <button onclick="showTab(1)">2월 4일(화)</button>
+        <button onclick="showTab(2)">2월 5일(수)</button>
+        <button onclick="showTab(3)">2월 7일(금)</button>
+    </div>
+
+    <!-- Tabs Content -->
+    <div id="tab-0" class="content active">
+    <h1>스케줄</h1>
+
+            <img src="src/00.png" alt="Sample Image">
+    <p> 1일차(02.04. 화) - 참 아름다워라 (찬78)<br>
+        2일차(02.05. 수) - 당신은 알고 있나요 (은231)<br>
+        4일차(02.07. 목) - 예수가 우리를 부르는 소리(찬318)</p>
+        <h1>인원</h1>
+        <p>
+        형제: 조우현,엄태욱,김종협,김광태,조명연,이건웅,김병모,김남혁<br>
+        자매: 곽신영,신정아,강민경,이수은,이은림,이현,김소현
+        <br>
+        <span style="color:#aaa">반주 : 조우현, 이현</span></p>
+        <h1>연습 관련 </h1>
+        <p>토요일 연습은 21:30~22:30 입니다. 수/일요일은 별도로 공지합니다.<br>
+        02.02. 일요일 연습은 리허설이며, 찬양대의 피드백을 받습니다.<br>
+        당일 행사 시작 30분 전에 최종 연습합니다.</p>
+
+    </div>
+    <div id="tab-1" class="content">
+        <div class="image-container">
+            <h1>참 아름다워라 (찬78)</h1>
+            <p>소프라노 : 이은림,곽신영,신정아,이수은,이현<br>
+            알토 : 김소현,강민경<br>
+            반주 : 조우현<br>
+            <h1>구성</h1>
+            <p>1절, 2절 후 간주. 그리고 3절입니다. 아멘은 하지 않습니다.</p>
+        </div>
+        <div class="music-buttons">
+            <button onclick="playSpecificTrack(4, '(소프라노) 참 아름다워라')">소프라노</button>
+            <button onclick="playSpecificTrack(5, '(알토) 참 아름다워라')">알토</button>
+<!--             <button onclick="playSpecificTrack(6, 'Tab 2 - Track 3')">Play Track 3</button>
+            <button onclick="playSpecificTrack(7, 'Tab 2 - Track 4')">Play Track 4</button> -->
+        </div><br>
+            <img src="src/01.png" alt="01score">
+
+    </div>
+    <div id="tab-2" class="content">
+        <div class="image-container">
+            <h1>당신은 알고 있나요 (은231)</h1>
+            <p>소프라노 : 이은림,곽신영,신정아,이수은<br>
+            알토 : 김소현,강민경<br>
+            테너 : 김남혁,조명연 <br>
+            베이스 : 김광태,조우현,김종협<br>
+            반주 : 이현</p>
+            <h1>구성</h1>
+            <p>악보대로 부르되, 맨 마지막 소절 "그 사랑 당신의 마음속<span style="color:orange;">에</span> 항상 함께하리라"는 한번 더 부릅니다. 이때, 반복하는 <span style="color:orange;">에</span>는 4박으로 부릅니다.</p>
+ 
+        </div>
+        <div class="music-buttons">
+            <button onclick="playSpecificTrack(8, '(소프라노) 당신은 알고 있나요')">소프라노</button>
+            <button onclick="playSpecificTrack(9, '(알토) 당신은 알고 있나요')">알토</button>
+            <button onclick="playSpecificTrack(10, '(테너) 당신은 알고 있나요')">테너</button>
+            <button onclick="playSpecificTrack(11, '(베이스) 당신은 알고 있나요')">베이스</button>
+        </div>
+        <br><img src="src/02.png" alt="02score">
+    </div>
+    <div id="tab-3" class="content">
+        <h1>예수가 우리를 부르는 소리 (찬318)</h1>
+            <p>소프라노 : 엄태욱, 김병모<br>
+            테너 : 김남혁,조명연<br>
+            베이스 : 김광태,조우현,김종협<br>
+            반주 : 이현</p>
+            <h1>구성</h1>
+            <p>1절, 2절 후 간주. 그리고 3절입니다. 4절은 하지 않습니다.</p>
+        <div class="image-container">
+        </div>
+        <div class="music-buttons">
+            <button onclick="playSpecificTrack(12, '(소프라노) 예수가 우리를 부르는 소리')">소프라노</button>
+            <button onclick="playSpecificTrack(14, '(테너) 예수가 우리를 부르는 소리')">테너</button>
+            <button onclick="playSpecificTrack(15, '(베이스) 예수가 우리를 부르는 소리')">베이스</button>
+            <!-- <button onclick="playSpecificTrack(13, 'Tab 4 - Track 4')">알토</button> -->
+        </div>
+        <br><img src="src/03.png" alt="03score">
+    </div>
+
+    <!-- Music Player -->
+    <div id="music-player" class="music-player">
+        <span id="current-track">No Track</span>
+        <div class="progress" onclick="seekAudio(event)">
+            <div class="progress-bar">
+                <div class="progress-filled" id="progress-filled"></div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="icon-button" onclick="playPause()" id="play-pause">
+                <span id="play-pause-icon">▶️</span>
+            </button>
+            <button class="icon-button" onclick="changeTrack()">⏭️</button>
+        </div>
+    </div>
+
+    <audio id="audio-player">
+        <source src="" type="audio/mp3">
+    </audio>
+
+    <script>
+        let currentAudio = document.getElementById('audio-player');
+        let playPauseButton = document.getElementById('play-pause');
+        let playPauseIcon = document.getElementById('play-pause-icon');
+        let currentTrackDisplay = document.getElementById('current-track');
+        let currentTimeDisplay = document.getElementById('current-time');
+        let durationDisplay = document.getElementById('duration');
+        let musicPlayer = document.getElementById('music-player');
+        let progressFilled = document.getElementById('progress-filled');
+        const tracks = [
+            { title: 'Tab 1 - Track 1', src: 'src/00.mp3' },
+            { title: 'Tab 1 - Track 2', src: 'src/01.mp3' },
+            { title: 'Tab 1 - Track 3', src: 'src/02.mp3' },
+            { title: 'Tab 1 - Track 4', src: 'src/03.mp3' },
+            { title: '(소프라노) 참 아름다워라', src: 'src/04.mp3' },
+            { title: '(알토) 참 아름다워라', src: 'src/05.mp3' },
+            { title: 'Tab 2 - Track 3', src: 'src/06.mp3' },
+            { title: 'Tab 2 - Track 4', src: 'src/07.mp3' },
+            { title: '(소프라노) 당신은 알고 있나요', src: 'src/08.mp3' },
+            { title: '(알토) 당신은 알고 있나요', src: 'src/09.mp3' },
+            { title: '(테너) 당신은 알고 있나요', src: 'src/10.mp3' },
+            { title: '(베이스) 당신은 알고 있나요', src: 'src/11.mp3' },
+            { title: '(소프라노) 예수가 우리를 부르는 소리', src: 'src/12.mp3' },
+            { title: 'Tab 4 - Track 2', src: 'src/13.mp3' },
+            { title: '(테너) 예수가 우리를 부르는 소리', src: 'src/14.mp3' },
+            { title: '(베이스) 예수가 우리를 부르는 소리', src: 'src/15.mp3' },
+        ];
+        let currentTrackIndex = 0;
+
+        function showTab(index) {
+            document.querySelectorAll('.content').forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            document.querySelectorAll('.tabs button').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+        }
+
+        function toggleImage(button) {
+            const img = button.nextElementSibling;
+            img.style.display = img.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function playPause() {
+            if (currentAudio.paused) {
+                currentAudio.play();
+                playPauseIcon.textContent = '⏸️';
+            } else {
+                currentAudio.pause();
+                playPauseIcon.textContent = '▶️';
+            }
+        }
+
+        function changeTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+            const track = tracks[currentTrackIndex];
+            currentAudio.src = track.src;
+            currentTrackDisplay.textContent = track.title;
+            currentAudio.play();
+            playPauseIcon.textContent = '⏸️';
+            musicPlayer.classList.add('active');
+        }
+
+        function playSpecificTrack(index, title) {
+            currentTrackIndex = index;
+            currentAudio.src = tracks[index].src;
+            currentTrackDisplay.textContent = title;
+            currentAudio.play();
+            playPauseIcon.textContent = '⏸️';
+            musicPlayer.classList.add('active');
+        }
+
+        currentAudio.addEventListener('timeupdate', () => {
+            const currentTime = Math.floor(currentAudio.currentTime);
+            const duration = Math.floor(currentAudio.duration);
+            const progressPercent = (currentAudio.currentTime / currentAudio.duration) * 100;
+            progressFilled.style.width = `${progressPercent}%`;
+        });
+
+        currentAudio.addEventListener('ended', () => {
+            playPauseIcon.textContent = '▶️';
+        });
+
+        function seekAudio(event) {
+            const progressBar = event.currentTarget;
+            const rect = progressBar.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const percent = offsetX / progressBar.offsetWidth;
+            currentAudio.currentTime = percent * currentAudio.duration;
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Hide music player initially
+        musicPlayer.classList.remove('active');
+    </script>
+</body>
+</html>
